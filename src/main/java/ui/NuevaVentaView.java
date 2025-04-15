@@ -11,6 +11,13 @@ import java.awt.event.ActionListener;
 
 public class NuevaVentaView {
 
+    public static final String DEFAULT_NUMERO_LITROS = "0";
+    public static final String RE_SUPER = "ReSuper";
+    public static final String SUPER = "Super";
+    public static final String INDICACION_INICIAL = "Indique lo que desea cargar:";
+    public static final String CANTIDAD_LITROS = "Litros";
+    public static final String CONFIRMAR_COMPRA = "Confirmar compra";
+    public static final String NUEVA_VENTA = "Nueva Venta";
     private JRadioButton rbReSuper;
     private JRadioButton rbSuper;
     private JTextField litros;
@@ -23,19 +30,19 @@ public class NuevaVentaView {
     }
 
     protected JComponent createOptionControls() {
-        JLabel label1 = new JLabel("Indique lo que desea cargar:");
+        JLabel label1 = new JLabel(INDICACION_INICIAL);
         bGroup = new ButtonGroup();
 
         this.rbReSuper = new JRadioButton();
-        rbReSuper.setText("ReSuper");
+        rbReSuper.setText(RE_SUPER);
         bGroup.add(rbReSuper);
 
         this.rbSuper = new JRadioButton();
-        rbSuper.setText("Super");
+        rbSuper.setText(SUPER);
         bGroup.add(rbSuper);
 
         this.litros = new JTextField();
-        this.litros.setText("0");
+        this.litros.setText(DEFAULT_NUMERO_LITROS);
 
         Box box = Box.createVerticalBox();
         box.add(label1);
@@ -44,7 +51,7 @@ public class NuevaVentaView {
         box.add(rbSuper);
 
         Box box2 = Box.createHorizontalBox();
-        JLabel label = new JLabel("Litros");
+        JLabel label = new JLabel(CANTIDAD_LITROS);
         box2.add(label);
         box2.add(Box.createHorizontalStrut(5));
         box2.add(litros);
@@ -56,7 +63,7 @@ public class NuevaVentaView {
     }
 
     protected JComponent createButtonPane() {
-        JButton button = new JButton("Confirmar compra");
+        JButton button = new JButton(CONFIRMAR_COMPRA);
         var self = this;
         button.addActionListener(new ActionListener() {
             @Override
@@ -86,7 +93,7 @@ public class NuevaVentaView {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
 
-            frame = new JFrame("Nueva Venta");
+            frame = new JFrame(NUEVA_VENTA);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
             Container contentPane = frame.getContentPane();
@@ -104,8 +111,10 @@ public class NuevaVentaView {
 
     class MyFrame extends JFrame implements ActionListener {
 
+        public static final String TITULO_INICIAL = "Estación de Servicio";
+
         public MyFrame() {
-            super("Estación de Servicio");
+            super(TITULO_INICIAL);
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
             JButton button = new JButton("Cerrar");
